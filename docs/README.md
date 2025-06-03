@@ -1,8 +1,17 @@
 docs-vitepress
 ===
 
-## [docs/README.md](./docs/README.md)
+## Gitlab Pages
 
+
+```sh
+pnpm add -D vitepress
+
+npx vitepress init
+
+```
+
+---
 
 This project is a `royfuwei/starter-ts-app` template for creating a new project using the [start-ts-by](https://www.npmjs.com/package/start-ts-by) CLI.
 

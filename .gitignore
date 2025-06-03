@@ -403,3 +403,5 @@ test-results*
 
 .env.*
 !.env.example
+
+docs/.vitepress/cache 
