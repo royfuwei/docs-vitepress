@@ -5,11 +5,10 @@ layout: home
 hero:
   name: "Docs VitePress"
   text: "test deploy VitePress page"
-  tagline: My great project tagline
   actions:
     - theme: brand
       text: README.md
-      link: /README.md
+      link: /README
     # - theme: alt
     #   text: API Examples
     #   link: /api-examples
@@ -17,12 +16,14 @@ hero:
 features:
   - title: CHANGELOG
     details: project CHANGELOG.md
-    link: /CHANGELOG.html
+    link: /CHANGELOG
   - title: Test Report
     details: Jest unit test report
     link: /lcov-report/index.html
+    target: '_self'
   - title: Code Coverage Report
     details: Jest Code Coverage Report
     link: /test-results/jest/index.html
+    target: '_self'
 ---
 
