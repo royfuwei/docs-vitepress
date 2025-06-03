@@ -20,9 +20,9 @@ features:
     link: /CHANGELOG.html
   - title: Test Report
     details: Jest unit test report
-    link: /lcov-report/
+    link: /lcov-report/index.html
   - title: Code Coverage Report
     details: Jest Code Coverage Report
-    link: /test-results/jest/
+    link: /test-results/jest/index.html
 ---
 

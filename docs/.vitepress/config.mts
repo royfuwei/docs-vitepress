@@ -16,8 +16,8 @@ export default defineConfig({
       {
         text: 'Examples',
         items: [
-          { text: 'Test Report', link: '/lcov-report/' },
-          { text: 'Code Coverage Report', link: '/test-results/jest/' },
+          { text: 'Test Report', link: '/lcov-report/index.html' },
+          { text: 'Code Coverage Report', link: '/test-results/jest/index.html' },
         ],
       },
     ],
