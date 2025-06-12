@@ -46,7 +46,7 @@ pages:
     - mkdir public/vitest-e2e
     - cp -r ./docs/.vitepress/dist/* public
     - cp -r .test/vitest/html/* public/vitest
-    - cp -r .test/vitest/coverage public/vitest
+    - cp -r .test/vitest/html/$VITEST_COV_PATH public/vitest
     - cp -r .test/vitest-e2e/html/* public/vitest-e2e
     - ls -la public
   artifacts:
