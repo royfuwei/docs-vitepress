@@ -22,10 +22,9 @@ export default defineConfig({
       reporter: [
         'cobertura',
         'text',
-        'html',
         process.env.VITEST_COV_PATH
           ? ['html', { subdir: `${process.env.VITEST_COV_PATH}` }]
-          : 'none',
+          : 'html',
       ],
       provider: 'istanbul', // or 'v8'
       reportsDirectory: '.test/vitest/coverage',
