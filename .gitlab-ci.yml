@@ -6,25 +6,26 @@ test:
   stage: test
   image: node:20.18.1-alpine3.20
   before_script:
-    - npm install ts-node ts-jest jest-html-reporter
+    - npm i vitest @vitest/coverage-istanbul @vitest/ui
   script:
-    - npx jest --verbose --coverage
+    - npx vitest --passWithNoTests
   artifacts:
     reports:
-      junit: test-results/jest/results.xml
-      cobertura: coverage/cobertura-coverage.xml
+      junit: .test/vitest/results.xml
+      cobertura: .test/vitest/coverage/cobertura-coverage.xml
 
 
 pages:
   stage: deploy
   image: node:20.18.1-alpine3.20
   before_script:
-    - npm install ts-node ts-jest jest-html-reporter
+    - npm i vitest @vitest/coverage-istanbul @vitest/ui
     - npm i -D vitepress
   script:
-    - echo "Starting jest test"
+    - echo "Starting vitest tests..."
     # 先跑測試並產生 cobertura.xml
-    - npx jest --verbose --coverage
+    - npm run test
+    - npm run test:e2e
     # build vitepress start
     - cp CHANGELOG.md docs
     - npx vitepress build docs
@@ -33,9 +34,11 @@ pages:
     - echo "This is a placeholder for the documentation build step."
     - echo "Copying documentation to public directory..."
     - mkdir public
+    - mkdir public/vitest
+    - mkdir public/vitest-e2e
     - cp -r ./docs/.vitepress/dist/* public
-    - cp -r test-results public
-    - cp -r coverage/lcov-report public
+    - cp -r .test/vitest/html/* public/vitest
+    - cp -r .test/vitest-e2e/html/* public/vitest-e2e
     - ls -la public
   artifacts:
     paths:
