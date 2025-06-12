@@ -9,10 +9,11 @@ test:
     - npm i vitest @vitest/coverage-istanbul @vitest/ui
   script:
     - echo $CI_PROJECT_NAME
+    - echo $CI_PROJECT_ROOT_NAMESPACE
     - echo $CI_PROJECT_NAMESPACE
     - echo $CI_PROJECT_PATH
     - echo $CI_COMMIT_REF_NAME
-    - export VITEST_COV_PATH=../$CI_PROJECT_PATH/vitest/coverage
+    - export VITEST_COV_PATH=../${CI_PROJECT_PATH#${CI_PROJECT_ROOT_NAMESPACE}/}/vitest/coverage
     - echo $VITEST_COV_PATH
     - npx vitest --passWithNoTests
   artifacts:
@@ -29,7 +30,7 @@ pages:
     - npm i -D vitepress
   script:
     - echo "Starting vitest tests..."
-    - export VITEST_COV_PATH=../$CI_PROJECT_PATH/vitest/coverage
+    - export VITEST_COV_PATH=../${CI_PROJECT_PATH#${CI_PROJECT_ROOT_NAMESPACE}/}/vitest/coverage
     - echo $VITEST_COV_PATH
     # 先跑測試並產生 cobertura.xml
     - npm run test
