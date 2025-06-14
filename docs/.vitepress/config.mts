@@ -3,7 +3,7 @@ import { defineConfig } from 'vitepress';
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   title: 'Docs VitePress',
-  base: '/docs-vitepress/',
+  base: process.env.VITEPRESS_BASE || '/',
   description: 'test deploy VitePress page',
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
